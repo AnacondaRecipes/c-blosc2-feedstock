@@ -25,6 +25,7 @@ cmake -G "Unix Makefiles" \
       -DPREFER_EXTERNAL_ZLIB=1 \
       -DBYTE_ORDER=BIG_ENDIAN \
       -DCOMPILER_SUPPORT_ALTIVEC=1 \
+      -DDEACTIVATE_AVX2=1
       "${SRC_DIR}"
 
 cmake --build .
