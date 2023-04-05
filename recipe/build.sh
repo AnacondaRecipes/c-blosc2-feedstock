@@ -23,6 +23,7 @@ cmake -G "Unix Makefiles" \
       -DPREFER_EXTERNAL_LZ4=1 \
       -DPREFER_EXTERNAL_ZSTD=1 \
       -DPREFER_EXTERNAL_ZLIB=1 \
+      -DBYTE_ORDER=BIG_ENDIAN \
       "${SRC_DIR}"
 
 cmake --build .
