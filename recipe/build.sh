@@ -10,7 +10,7 @@ if [[ "${target_platform}" != "${build_platform}" ]]; then
 else
     BUILD_TESTS=1
 fi
-
+export CFLAGS="${CFLAGS} -fno-merge-constants"
 cmake -G "Unix Makefiles" \
       ${CMAKE_ARGS} \
       -DCMAKE_BUILD_TYPE="Release" \
