@@ -28,6 +28,6 @@ cmake -G "Unix Makefiles" \
 
 cmake --build .
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
-    ctest
+    ctest --output-on-failure
 fi
 cmake --build . --output-on-failure --target install
