@@ -29,4 +29,4 @@ cmake --build .
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
     ctest
 fi
-cmake --build . --target install
+cmake --build . --output-on-failure --target install

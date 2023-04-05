@@ -11,6 +11,7 @@ source:
 
 build:
   number: 0
+  skip: true  # [not s390x]
   run_exports:
     - {{ pin_subpackage('c-blosc2') }}
 
