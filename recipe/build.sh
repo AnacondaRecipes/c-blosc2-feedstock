@@ -24,10 +24,11 @@ cmake -G "Unix Makefiles" \
       -DPREFER_EXTERNAL_ZSTD=1 \
       -DPREFER_EXTERNAL_ZLIB=1 \
       -DBYTE_ORDER=BIG_ENDIAN \
+      -DCOMPILER_SUPPORT_ALTIVEC=1 \
       "${SRC_DIR}"
 
 cmake --build .
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
     ctest --output-on-failure
 fi
-cmake --build . --output-on-failure --target install
+cmake --build . --target install
