@@ -21,9 +21,9 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - lz4-c
-    - zstd
-    - zlib-ng
+    - lz4-c 1.9.4
+    - zstd 1.5.4
+    - zlib-ng 2.0.7
 
 test:
   commands:
