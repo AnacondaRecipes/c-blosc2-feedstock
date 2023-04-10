@@ -17,6 +17,7 @@ cmake -G "Unix Makefiles" \
       -DCMAKE_POSITION_INDEPENDENT_CODE=1 \
       -DBUILD_STATIC=0 \
       -DBUILD_SHARED=1 \
+      -DBUILD_LITE=1 \
       -DBUILD_TESTS=${BUILD_TESTS} \
       -DBUILD_EXAMPLES=0 \
       -DBUILD_BENCHMARKS=0 \
