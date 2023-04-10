@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/Blosc/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: be608cdf68deb02e0d3ee62e183942a0fe5d5d3185375b9b6566e2ae35a9bdbd
+  patches:
+    - s390x.patch
 
 build:
   number: 0
@@ -21,6 +23,7 @@ requirements:
     - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - patch
   host:
     - lz4-c 1.9.4
     - zstd 1.5.4
