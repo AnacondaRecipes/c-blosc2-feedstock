@@ -10,6 +10,9 @@ source:
   sha256: be608cdf68deb02e0d3ee62e183942a0fe5d5d3185375b9b6566e2ae35a9bdbd
 
 build:
+  # currently c-blosc2 does not support s390x
+  # https://github.com/Blosc/c-blosc2/issues/467
+  # https://github.com/Blosc/c-blosc2/issues/85
   skip: true  # [s390x]
   number: 0
   run_exports:
