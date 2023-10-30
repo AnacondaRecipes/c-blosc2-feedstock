@@ -1,5 +1,5 @@
 {% set name = "c-blosc2" %}
-{% set version = "2.8.0" %}
+{% set version = "2.10.5" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Blosc/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: be608cdf68deb02e0d3ee62e183942a0fe5d5d3185375b9b6566e2ae35a9bdbd
+  sha256: a88f94bf839c1371aab8207a6a43698ceb92c72f65d0d7fe5b6e59f24c138b4d
 
 build:
   # currently c-blosc2 does not support s390x
@@ -26,8 +26,12 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - lz4-c 1.9.4
-    - zstd 1.5.4
+    - zstd 1.5.2
     - zlib-ng 2.0.7
+  run:
+    - lz4-c   # has run_exports
+    - zstd    # has run_exports
+    - zlib-ng # has run_exports
 
 test:
   commands:
@@ -48,8 +52,10 @@ about:
   license_file: LICENSE.txt
   summary: A simple, compressed, fast and persistent data store library for C
   description: |
-    Next generation of C-Blosc library bringing in a new container (schunk) that can optionally be persisted (frame).  Also, more filters, codecs and other bells and whistles like pre-filter support have been added.  The API tries to be as compatible as possible with the original C-Blosc.
-  dev_url: https://www.blosc.org/
+    Next generation of C-Blosc library bringing in a new container (schunk) that can optionally be persisted (frame).  
+    Also, more filters, codecs and other bells and whistles like pre-filter support have been added.  
+    The API tries to be as compatible as possible with the original C-Blosc.
+  dev_url: https://github.com/Blosc/c-blosc2
   doc_url: https://www.blosc.org/c-blosc2/c-blosc2.html
 
 extra:
