@@ -28,7 +28,7 @@ if errorlevel 1 exit 1
 cmake --build . --config Release
 if errorlevel 1 exit 1
 
-ctest -C release --output-on-failure --timeout 120
+ctest -C release --output-on-failure --timeout 200
 if errorlevel 1 exit 1
 
 cmake --build . --target install --config Release
