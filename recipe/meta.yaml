@@ -10,20 +10,16 @@ source:
   sha256: 53c6ed1167683502f5db69d212106e782180548ca5495745eb580e796b7f7505
 
 build:
-  # currently c-blosc2 does not support s390x
-  # https://github.com/Blosc/c-blosc2/issues/467
-  # https://github.com/Blosc/c-blosc2/issues/85
-  skip: true  # [s390x]
   number: 0
   run_exports:
-    - {{ pin_subpackage('c-blosc2') }}
+    # soname change in 2.14.4. See: https://github.com/Blosc/c-blosc2/releases/tag/v2.14.4
+    - {{ pin_subpackage('c-blosc2', max_pin='x.x') }}
 
 requirements:
   build:
     - cmake
     - make  # [unix]
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
   host:
     - lz4-c {{ lz4_c}}
     - zstd {{ zstd }}
