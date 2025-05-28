@@ -1,5 +1,5 @@
 {% set name = "c-blosc2" %}
-{% set version = "2.12.0" %}
+{% set version = "2.17.1" %}
 
 package:
   name: {{ name }}
@@ -7,27 +7,23 @@ package:
 
 source:
   url: https://github.com/Blosc/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: b8fa07ab0627c19fb652e08a5ada197eb0939b75e97e2fb76bbee145eaedc6e9
+  sha256: 53c6ed1167683502f5db69d212106e782180548ca5495745eb580e796b7f7505
 
 build:
-  # currently c-blosc2 does not support s390x
-  # https://github.com/Blosc/c-blosc2/issues/467
-  # https://github.com/Blosc/c-blosc2/issues/85
-  skip: true  # [s390x]
   number: 0
   run_exports:
-    - {{ pin_subpackage('c-blosc2') }}
+    # soname change in 2.14.4. See: https://github.com/Blosc/c-blosc2/releases/tag/v2.14.4
+    - {{ pin_subpackage('c-blosc2', max_pin='x.x') }}
 
 requirements:
   build:
     - cmake
     - make  # [unix]
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
   host:
-    - lz4-c 1.9.4
-    - zstd 1.5.2
-    - zlib-ng 2.0.7
+    - lz4-c {{ lz4_c }}
+    - zstd {{ zstd }}
+    - zlib-ng {{ zlib_ng }}
   run:
     - lz4-c   # has run_exports
     - zstd    # has run_exports
