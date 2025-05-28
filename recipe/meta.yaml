@@ -21,7 +21,7 @@ requirements:
     - make  # [unix]
     - {{ compiler('c') }}
   host:
-    - lz4-c {{ lz4_c}}
+    - lz4-c {{ lz4_c }}
     - zstd {{ zstd }}
     - zlib-ng {{ zlib_ng }}
   run:
