@@ -1,5 +1,5 @@
 {% set name = "c-blosc2" %}
-{% set version = "2.22.0" %}
+{% set version = "3.1.2" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Blosc/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 6c6fe90babfa09bd3c544643d3fc3ea9516f9cbc74e8b3342f0d50416862b76f
+  sha256: b4fbad51de56abf2f4660bd1cb9801bc044662db3ea009ede454b4fd36fd98eb
 
 build:
   number: 0
@@ -25,21 +25,21 @@ requirements:
     - zstd {{ zstd }}
     - zlib-ng {{ zlib_ng }}
   run:
-    - lz4-c   # has run_exports
-    - zstd    # has run_exports
-    - zlib-ng # has run_exports
+    - lz4-c  # has run_exports
+    - zstd  # has run_exports
+    - zlib-ng  # has run_exports
 
 test:
   commands:
-    - test -e $PREFIX/include/blosc2.h                    # [unix]
-    - test -e $PREFIX/include/blosc2/blosc2-export.h      # [unix]
-    - test -e $PREFIX/lib/libblosc2${SHLIB_EXT}           # [unix]
-    - test -e $PREFIX/lib/pkgconfig/blosc2.pc             # [unix]
-    - if not exist %LIBRARY_INC%\blosc2.h exit 1                # [win]
+    - test -e $PREFIX/include/blosc2.h  # [unix]
+    - test -e $PREFIX/include/blosc2/blosc2-export.h  # [unix]
+    - test -e $PREFIX/lib/libblosc2${SHLIB_EXT}  # [unix]
+    - test -e $PREFIX/lib/pkgconfig/blosc2.pc  # [unix]
+    - if not exist %LIBRARY_INC%\blosc2.h exit 1  # [win]
     - if not exist %LIBRARY_INC%\blosc2\blosc2-export.h exit 1  # [win]
-    - if not exist %LIBRARY_BIN%\libblosc2.dll exit 1           # [win]
-    - if not exist %LIBRARY_LIB%\pkgconfig\blosc2.pc exit 1     # [win]
-    - if not exist %LIBRARY_LIB%\blosc2.lib exit 1.             # [win]
+    - if not exist %LIBRARY_BIN%\libblosc2.dll exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\pkgconfig\blosc2.pc exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\blosc2.lib exit 1.  # [win]
 
 about:
   home: https://github.com/Blosc/c-blosc2
@@ -48,8 +48,8 @@ about:
   license_file: LICENSE.txt
   summary: A simple, compressed, fast and persistent data store library for C
   description: |
-    Next generation of C-Blosc library bringing in a new container (schunk) that can optionally be persisted (frame).  
-    Also, more filters, codecs and other bells and whistles like pre-filter support have been added.  
+    Next generation of C-Blosc library bringing in a new container (schunk) that can optionally be persisted (frame).
+    Also, more filters, codecs and other bells and whistles like pre-filter support have been added.
     The API tries to be as compatible as possible with the original C-Blosc.
   dev_url: https://github.com/Blosc/c-blosc2
   doc_url: https://www.blosc.org/c-blosc2/c-blosc2.html
