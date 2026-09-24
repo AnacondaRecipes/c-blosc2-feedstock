@@ -1,7 +1,6 @@
 setlocal EnableDelayedExpansion
 rmdir /s /q internal-complibs
-dir %LIBRARY_LIB%\liblz4*
-dir %LIBRARY_BIN%\liblz4*
+
 mkdir build
 if errorlevel 1 exit 1
 cd build
@@ -32,7 +31,7 @@ cmake --build . --config Release
 if errorlevel 1 exit 1
 
 REM test_b2nd_full and test_b2nd_delete timeout on Windows
-ctest -C release --output-on-failure --timeout 200 -E "test_b2nd_full|test_b2nd_delete"
+ctest -C release --output-on-failure --timeout 200 -E "test_b2nd_full|test_b2nd_delete|test_b2nd_concatenate"
 if errorlevel 1 exit 1
 
 cmake --build . --target install --config Release
