@@ -1,6 +1,7 @@
 setlocal EnableDelayedExpansion
 rmdir /s /q internal-complibs
-
+dir %LIBRARY_LIB%\lz4*
+dir %LIBRARY_BIN%\lz4*
 mkdir build
 if errorlevel 1 exit 1
 cd build
