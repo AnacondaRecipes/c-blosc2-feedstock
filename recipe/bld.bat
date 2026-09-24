@@ -1,7 +1,7 @@
 setlocal EnableDelayedExpansion
 rmdir /s /q internal-complibs
-dir %LIBRARY_LIB%\lz4*
-dir %LIBRARY_BIN%\lz4*
+dir %LIBRARY_LIB%\liblz4*
+dir %LIBRARY_BIN%\liblz4*
 mkdir build
 if errorlevel 1 exit 1
 cd build
@@ -23,6 +23,8 @@ cmake -G "NMake Makefiles" ^
       -DPREFER_EXTERNAL_LZ4:BOOL=ON ^
       -DPREFER_EXTERNAL_ZSTD:BOOL=ON ^
       -DPREFER_EXTERNAL_ZLIB:BOOL=ON ^
+      -DLZ4_LIBRARY:FILEPATH="%LIBRARY_LIB%\liblz4.lib" ^
+      -DLZ4_INCLUDE_DIR:PATH="%LIBRARY_INC%" ^
       "%SRC_DIR%"
 if errorlevel 1 exit 1
 
