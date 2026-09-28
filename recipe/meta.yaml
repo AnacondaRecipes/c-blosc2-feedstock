@@ -1,5 +1,5 @@
 {% set name = "c-blosc2" %}
-{% set version = "3.1.2" %}
+{% set version = "3.3.5" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/Blosc/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: b4fbad51de56abf2f4660bd1cb9801bc044662db3ea009ede454b4fd36fd98eb
+  sha256: ae3a348fd960f29180e8ee97b9fa3dad1a6a592098f2a3eac82979082a5932d5
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('c-blosc2', max_pin='x.x') }}
 
@@ -49,8 +49,8 @@ about:
   license_file: LICENSE.txt
   summary: A simple, compressed, fast and persistent data store library for C
   description: |
-    Next generation of C-Blosc library bringing in a new container (schunk) that can optionally be persisted (frame).  
-    Also, more filters, codecs and other bells and whistles like pre-filter support have been added.  
+    Next generation of C-Blosc library bringing in a new container (schunk) that can optionally be persisted (frame).
+    Also, more filters, codecs and other bells and whistles like pre-filter support have been added.
     The API tries to be as compatible as possible with the original C-Blosc.
   dev_url: https://github.com/Blosc/c-blosc2
   doc_url: https://www.blosc.org/c-blosc2/c-blosc2.html
